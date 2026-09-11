@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Reciepe from './Reciepe';
 import AddRecipeManager from './AddRecipe';
-import { recipes } from './reciepeData';
+import { recipes } from './reciepeData.js';
+import './RecipeManager.css';
 
 function RecipeManager() {
   const [recipe, setRecipe] = useState(recipes);
@@ -13,13 +14,17 @@ function RecipeManager() {
   const handleAddRecipe = (newRecipe) => {
     setRecipe((prev) => [...prev, newRecipe]);
   };
+
   return (
-    <section>
-      <div>
+    <section className="recipe-manager">
+      <div className="recipe-manager__container">
         <AddRecipeManager onAddRecipe={handleAddRecipe} />
-        {recipe.map((data) => {
-          return <Reciepe key={data.id} {...data} onRemove={handleRemove} />;
-        })}
+
+        <div className="recipe-list">
+          {recipe.map((data) => {
+            return <Reciepe key={data.id} {...data} onRemove={handleRemove} />;
+          })}
+        </div>
       </div>
     </section>
   );
