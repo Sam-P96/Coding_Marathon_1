@@ -1,32 +1,96 @@
 import React, { useState } from "react";
+import Contact from "./Contact";
 import "./ContactListManager.css";
-
 
 function ContactListManager() {
   const [contacts, setContacts] = useState([]);
+
+  //  useState for all the 8 required fields
+
+
   const [name, setName] = useState("");
+
   const [email, setEmail] = useState("");
 
-  // Handle input change for name
+  const [phone, setPhone] = useState("");
+
+  const [jobTitle, setJobTitle] = useState("");
+
+  const [birthday, setBirthday] = useState("");
+
+  const [notes, setNotes] = useState("");
+
+  const [website, setWebsite] = useState("");
+
+  const [favorite, setFavorite] = useState(false);
+
+
+  // input handlers
+
   function handleNameChange(event) {
     setName(event.target.value);
   }
 
-  // Handle input change for email
   function handleEmailChange(event) {
     setEmail(event.target.value);
   }
 
-  // Add a new contact to the list
+  function handlePhoneChange(event) {
+    setPhone(event.target.value);
+  }
+
+  function handleJobTitleChange(event) {
+    setJobTitle(event.target.value);
+  }
+
+  function handleBirthdayChange(event) {
+    setBirthday(event.target.value);
+  }
+
+  function handleNotesChange(event) {
+    setNotes(event.target.value);
+  }
+
+  function handleWebsiteChange(event) {
+    setWebsite(event.target.value);
+  }
+
+  function handleFavoriteChange(event) {
+    setFavorite(event.target.checked);
+  }
+
+  // contact function
+
   function addContact() {
     if (name.trim() !== "" && email.trim() !== "") {
-      setContacts((c) => [...c, { name, email }]);
+      const newContact = {
+        name: name,
+        email: email,
+        phone: phone,
+        job_title: jobTitle,
+        birthday: birthday,
+        notes: notes,
+        website: website,
+        favorite: favorite
+      };
+
+      setContacts([...contacts, newContact]);
+
+    
       setName("");
-      setEmail(""); // Clear the input fields
+      setEmail("");
+      setPhone("");
+      setJobTitle("");
+      setBirthday("");
+      setNotes("");
+      setWebsite("");
+      setFavorite(false);
+
     }
   }
 
-  // Delete a contact from the list
+  // Delete contact function
+  
   function deleteContact(index) {
     const updatedContacts = contacts.filter((_, i) => i !== index);
     setContacts(updatedContacts);
@@ -35,22 +99,71 @@ function ContactListManager() {
   return (
     <div className="app-container">
       <h1>Contact List Manager</h1>
-      
+
       <div className="input-section">
         <input
           type="text"
-          placeholder="Enter contact name..."
+          placeholder="Enter name..."
           value={name}
           onChange={handleNameChange}
           className="input-field"
         />
+
         <input
           type="email"
-          placeholder="Enter email address..."
+          placeholder="Enter email..."
           value={email}
           onChange={handleEmailChange}
           className="input-field"
         />
+
+        <input
+          type="tel"
+          placeholder="Enter phone (+358...)..."
+          value={phone}
+          onChange={handlePhoneChange}
+          className="input-field"
+        />
+
+        <input
+          type="text"
+          placeholder="Enter job title..."
+          value={jobTitle}
+          onChange={handleJobTitleChange}
+          className="input-field"
+        />
+
+        <input
+          type="date"
+          value={birthday}
+          onChange={handleBirthdayChange}
+          className="input-field"
+        />
+
+        <input
+          type="url"
+          placeholder="Enter website (https://...)..."
+          value={website}
+          onChange={handleWebsiteChange}
+          className="input-field"
+        />
+
+        <textarea
+          placeholder="Enter notes..."
+          value={notes}
+          onChange={handleNotesChange}
+          className="input-field"
+        />
+
+        <label className="checkbox-label">
+          <input
+            type="checkbox"
+            checked={favorite}
+            onChange={handleFavoriteChange}
+          />
+          Favorite
+        </label>
+
         <button onClick={addContact} className="add-button">
           Add Contact
         </button>
@@ -63,18 +176,11 @@ function ContactListManager() {
         ) : (
           <ol className="contacts-list">
             {contacts.map((contact, index) => (
-              <li key={index} className="contact-item">
-                <div className="contact-info">
-                  <span className="contact-name">{contact.name}</span>
-                  <span className="contact-email">{contact.email}</span>
-                </div>
-                <button
-                  onClick={() => deleteContact(index)}
-                  className="delete-button"
-                >
-                  Delete
-                </button>
-              </li>
+              <Contact
+                key={index}
+                contact={contact}
+                onDelete={() => deleteContact(index)}
+              />
             ))}
           </ol>
         )}
