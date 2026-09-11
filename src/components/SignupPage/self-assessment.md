@@ -10,13 +10,6 @@
 | Clean, readable, and well-organized code | 12 / 15 | Naming is descriptive and the component is short and easy to follow. Points deducted because the four input blocks repeat the same structure and could be extracted into a reusable field component, and because the code has no explanatory comments. |
 | Self-assessment | 13 / 15 | Completed honestly, with concrete weaknesses identified rather than generic praise. |
 
-### Group Score: __ / 35
-
-| Criteria | Points | Justification |
-| --- | ---: | --- |
-| Effective Git branching and merging | __ / 20 | Each member worked on their own branch and merged into `main` through pull requests. <điền thêm: có conflict không, xử lý thế nào> |
-| GitHub Pages deployment | __ / 15 | <điền: deploy có chạy không, ai làm, có vấn đề gì> |
-
 ---
 
 ## 1. Functionality
