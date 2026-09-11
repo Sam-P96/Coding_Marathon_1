@@ -15,7 +15,7 @@ function AddRecipeManager({ onAddRecipe }) {
 
   function addRecipe() {
     const newRecipe = {
-      id: `rec-0${nextId++}`,
+      id: nextId++,
       title: formData.title,
       slug: formData.slug,
       description: formData.description,
