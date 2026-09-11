@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import Reciepe from './Reciepe';
-
+import AddRecipeManager from './AddRecipe';
 import { recipes } from './reciepeData';
 
-function RecipeManager(data) {
-  const [reciepe, setReciepe] = useState(recipes);
+function RecipeManager() {
+  const [recipe, setRecipe] = useState(recipes);
+
+  const handleRemove = (recipeId) => {
+    setRecipe(recipe.filter((item) => item.id !== recipeId));
+  };
+
   return (
     <section>
-      {/* <Title title="featured" subtitle="reciepe" /> */}
       <div>
-        {recipes.map((data) => {
-          return <Reciepe key={data.id} {...data} />;
+        <AddRecipeManager recipes={recipe} />
+        {recipe.map((data) => {
+          return <Reciepe key={data.id} {...data} onRemove={handleRemove} />;
         })}
       </div>
     </section>
