@@ -3,40 +3,45 @@
 
 ## 1. Functionality
 - **Does the component meet the requirements?**
-  - [ ] Does it handle all the specified features (e.g., adding, removing, or updating books)?
-  - [ ] Are edge cases handled (e.g., empty inputs, duplicate entries)?
-  - [ ] Are there any bugs or unexpected behaviors?
+  - [+] Does it handle all the specified features (e.g., adding, removing, or updating books)?
+  - [-] Are edge cases handled (e.g., empty inputs, duplicate entries)?
+  - [+] Are there any bugs or unexpected behaviors?
 
 - **How well does the component integrate with other parts of the application?**
-  - [ ] Are props and state managed appropriately?
+  - [+] Are props and state managed appropriately?
 
 ## 2. Code Quality
 - **Readability**
-  - [ ] Is the code easy to understand for other developers?
-  - [ ] Are variable and function names descriptive and meaningful?
+  - [+] Is the code easy to understand for other developers?
+  - [+] Are variable and function names descriptive and meaningful?
 
 - **Reusability**
-  - [ ] Can the component or parts of it be reused in other parts of the application?
+  - [+] Can the component or parts of it be reused in other parts of the application?
 
 - **Comments and Documentation**
-  - [ ] Are there comments explaining complex logic?
-  - [ ] Is there documentation for how to use the component?
+  - [+] Are there comments explaining complex logic?
+    (there are no complex logic here)
+  - [+] Is there documentation for how to use the component?
 
 ## 3. Performance
 - **Efficiency**
   - [ ] Are there any unnecessary re-renders or performance bottlenecks?
+    (I am not familiar with this)
   - [ ] Is the component optimized for large datasets (if applicable)?
+    (I dont know)
 
 - **State Management**
-  - [ ] Is state managed efficiently (e.g., minimal state, derived state)?
-  - [ ] Are hooks (e.g., `useState`, ) used correctly?
+  - [+] Is state managed efficiently (e.g., minimal state, derived state)?
+  - [+] Are hooks (e.g., `useState`, ) used correctly?
 
 ## 4. Overall Assessment
 - **Strengths**
   - List the strengths of the component.
+  It works, its rather intuitive, easy to read
 
 - **Areas for Improvement**
   - List areas where the component could be improved.
+  I should probably include an input type, and error message for things like rating, year, etc. So that they would only acceppt strings, numbers, etc. 
 
 - **Action Plan**
   - Outline specific steps to address the areas for improvement.
