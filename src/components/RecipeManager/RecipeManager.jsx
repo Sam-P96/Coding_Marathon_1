@@ -10,10 +10,13 @@ function RecipeManager() {
     setRecipe(recipe.filter((item) => item.id !== recipeId));
   };
 
+  const handleAddRecipe = (newRecipe) => {
+    setRecipe((prev) => [...prev, newRecipe]);
+  };
   return (
     <section>
       <div>
-        <AddRecipeManager recipes={recipe} />
+        <AddRecipeManager onAddRecipe={handleAddRecipe} />
         {recipe.map((data) => {
           return <Reciepe key={data.id} {...data} onRemove={handleRemove} />;
         })}

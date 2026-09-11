@@ -1,29 +1,42 @@
 import React, { useState } from 'react';
 import './RecipeManager.css';
 
-let nextId = 1;
+let nextId = 8;
 
-function AddRecipeManager() {
-  const [recipe, setRecipes] = useState([]);
-
+function AddRecipeManager({ onAddRecipe }) {
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
     description: '',
     time: '',
+    difficulty: '',
     author: '',
   });
 
   function addRecipe() {
     const newRecipe = {
-      id: nextId++,
+      id: `rec-0${nextId++}`,
       title: formData.title,
       slug: formData.slug,
       description: formData.description,
       time: Number(formData.time),
       author: formData.author,
+      difficulty: formData.difficulty,
+      image: '',
     };
-    setRecipes((prev) => [...prev, newRecipe]);
+
+    if (onAddRecipe) {
+      onAddRecipe(newRecipe);
+    }
+
+    setFormData({
+      title: '',
+      slug: '',
+      description: '',
+      difficulty: '',
+      time: '',
+      author: '',
+    });
   }
 
   const handleChange = (e) => {
@@ -57,6 +70,14 @@ function AddRecipeManager() {
           name="description"
           placeholder="Enter description"
           value={formData.description}
+          onChange={handleChange}
+          className="input-field"
+        />
+        <input
+          type="text"
+          name="difficulty"
+          placeholder="Enter difficulty"
+          value={formData.difficulty}
           onChange={handleChange}
           className="input-field"
         />
