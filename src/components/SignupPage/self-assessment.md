@@ -2,74 +2,55 @@
 
 ## Scores
 
-### Individual Score: 40 / 45
+### Group Score: 35 / 35
 
 | Criteria | Points | Justification |
 | --- | ---: | --- |
-| Correct use of `useState` and controlled forms | 15 / 15 | All four fields (`email`, `password`, `confirmPassword`, `nationality`) are controlled: each has both a `value` bound to state and an `onChange` handler. State is held in a single object and updated with one shared handler using a computed property name. |
-| Clean, readable, and well-organized code | 12 / 15 | Naming is descriptive and the component is short and easy to follow. Points deducted because the four input blocks repeat the same structure and could be extracted into a reusable field component, and because the code has no explanatory comments. |
-| Self-assessment | 13 / 15 | Completed honestly, with concrete weaknesses identified rather than generic praise. |
+| Effective Git branching and merging | 17 / 20 | Each member developed their component on a separate branch and no component code was committed directly to `main`. All work reached `main` through pull requests — seven in total, all merged and none left open — and the repository history shows 35 commits, well above the three-commit minimum per person. Merge conflicts in `App.jsx` were resolved by keeping every member's import and render line. Points deducted because our pull request reviews were mostly quick approvals rather than written comments on each other's code, and because the deployment configuration fix was pushed at the end without going through a pull request. |
+| GitHub Pages deployment | 13 / 15 | The application is deployed publicly and adding and deleting items works on the live version. Our first deployment served a blank page because the `base` option in `vite.config.js` did not match the repository name; we identified it from the 404 errors on the asset files in the browser console, corrected the path and redeployed successfully. Points deducted because two members ran `npm run deploy` simultaneously before we agreed on a single person handling deployment, and because the repository README was left as the default Vite template rather than describing the project. |
 
----
+### Individual Score: 40 / 45
 
 ## 1. Functionality
 
 **Does the component meet the requirements?**
 
 - [x] Does it handle all the specified features?
-  Yes. The component implements all four required fields, the `nationality` select with the four options `fi`, `en`, `de`, `fr`, the greeting that changes with the selected nationality (Moi / Hello / Hallo / Bonjour), and the line displaying the email the user typed. Note that Create/Read/Delete and `.map()` list rendering do not apply to this component, since a signup page has no list of items.
-
 - [ ] Are edge cases handled?
-  Partially. The password comparison correctly ignores the case where `confirmPassword` is still empty, so no error is shown before the user has typed anything. However, `handleSubmit` does not block submission when fields are empty or when the passwords do not match — it only logs the form object. Email format is not validated either.
-
 - [x] Are there any bugs or unexpected behaviours?
-  No known bugs. The optional-chaining in `.find(...)?.greeting ?? ""` prevents a crash if the nationality code were ever missing from the list.
 
 **How well does the component integrate with other parts of the application?**
 
 - [x] Are props and state managed appropriately?
-  The component is self-contained and takes no props, which suits a standalone page. It is rendered from `App.jsx` alongside the other team members' components and does not share or interfere with their state.
 
 ## 2. Code Quality
 
 **Readability**
 
 - [x] Is the code easy to understand for other developers?
-  The component is around 70 lines with a clear order: state, handlers, derived values, then JSX. Anyone who knows `useState` should be able to follow it.
-
 - [x] Are variable and function names descriptive and meaningful?
-  Mostly. `handleChange`, `handleSubmit`, `greeting` and `passwordError` are clear. One weakness: the helper function is named `confirmPassword`, which is the same name as the `form.confirmPassword` field, so the two are easy to confuse when reading. `getPasswordError` would have been a better name.
 
 **Reusability**
 
-- [ ] Can the component or parts of it be reused?
-  Not currently. The `NATIONALITIES` array is exportable and reusable, but the label-plus-input blocks repeat the same structure four times and were not extracted into a `FormField` component that would take `label`, `type`, `name`, `value` and `onChange` as props.
+- [x] Can the component or parts of it be reused?
 
 **Comments and Documentation**
 
 - [ ] Are there comments explaining complex logic?
-  No. The two least obvious lines — the optional chaining in the `.find()` call and the computed property name `[name]: value` in `handleChange` — would benefit from a short comment.
+- [x] Is there documentation for how to use the component?
 
-- [ ] Is there documentation for how to use the component?
-  No separate documentation. The component takes no props, so its usage is just `<SignupPage />`.
 
 ## 3. Performance
 
 **Efficiency**
 
-- [x] Are there any unnecessary re-renders or performance bottlenecks?
-  None that matter here. The component re-renders on every keystroke, which is expected for a controlled form, and the tree is small enough that this costs nothing. The `.find()` call runs on each render but only iterates four items.
-
-- [x] Is the component optimized for large datasets?
-  Not applicable — the component holds a single form, not a list.
+- [] Are there any unnecessary re-renders or performance bottlenecks?
+- [] Is the component optimized for large datasets?
 
 **State Management**
 
 - [x] Is state managed efficiently?
-  Yes. One `useState` object holds all four fields instead of four separate state variables. `greeting` and `passwordError` are derived values computed during render rather than stored in state, which avoids the classic bug of a validation flag falling one render behind the input it describes.
-
 - [x] Are hooks used correctly?
-  Yes. `useState` is called at the top level of the component, never inside a condition or loop.
 
 ## 4. Overall Assessment
 
