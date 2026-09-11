@@ -1,3 +1,5 @@
+import './RecipeManager.css';
+
 const Reciepe = ({
   id,
   title,
@@ -10,24 +12,25 @@ const Reciepe = ({
   onRemove,
 }) => {
   return (
-    <div>
-      <section
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '5px',
-        }}
-      >
-        <h1>{title}</h1>
-        <h3>{slug}</h3>
-        <p>{description}</p>
-        <p>{time}</p>
-        <h4>{difficulty}</h4>
-        <p>{author}</p>
-        <img src={image}></img>
-        <button onClick={() => onRemove(id)}>Remove</button>
+    <div className="recipe-card">
+      <section className="recipe-card__body">
+        <h1 className="recipe-card__title">{title}</h1>
+        <h3 className="recipe-card__slug">/{slug}</h3>
+        <p className="recipe-card__description">{description}</p>
+
+        <div className="recipe-card__meta">
+          <span className="recipe-card__time">⏱ {time} mins</span>
+          {difficulty && <h4 className="recipe-card__badge">{difficulty}</h4>}
+          <span className="recipe-card__author">By {author}</span>
+        </div>
+
+        {image && (
+          <img src={image} alt={title} className="recipe-card__image" />
+        )}
+
+        <button onClick={() => onRemove(id)} className="recipe-card__button">
+          Remove
+        </button>
       </section>
     </div>
   );

@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import './RecipeManager.css';
 
-let nextId = 1;
+let nextId = 8;
 
-function AddRecipeManager() {
-  const [recipe, setRecipes] = useState([]);
-
+function AddRecipeManager({ onAddRecipe }) {
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
     description: '',
     time: '',
+    difficulty: '',
     author: '',
   });
 
@@ -22,8 +21,22 @@ function AddRecipeManager() {
       description: formData.description,
       time: Number(formData.time),
       author: formData.author,
+      difficulty: formData.difficulty,
+      image: '',
     };
-    setRecipes((prev) => [...prev, newRecipe]);
+
+    if (onAddRecipe) {
+      onAddRecipe(newRecipe);
+    }
+
+    setFormData({
+      title: '',
+      slug: '',
+      description: '',
+      difficulty: '',
+      time: '',
+      author: '',
+    });
   }
 
   const handleChange = (e) => {
@@ -32,17 +45,17 @@ function AddRecipeManager() {
   };
 
   return (
-    <div className="app-container">
-      <h1>Recipe Collection Manager</h1>
+    <div className="recipe-form">
+      <h1 className="recipe-form__title">Recipe Collection Manager</h1>
 
-      <div className="input-section">
+      <div className="recipe-form__inputs">
         <input
           type="text"
           name="title"
-          placeholder="Enter title "
+          placeholder="Enter title"
           value={formData.title}
           onChange={handleChange}
-          className="input-field"
+          className="recipe-form__input"
         />
         <input
           type="text"
@@ -50,7 +63,7 @@ function AddRecipeManager() {
           placeholder="Enter Slug"
           value={formData.slug}
           onChange={handleChange}
-          className="input-field"
+          className="recipe-form__input"
         />
         <input
           type="text"
@@ -58,27 +71,33 @@ function AddRecipeManager() {
           placeholder="Enter description"
           value={formData.description}
           onChange={handleChange}
-          className="input-field"
+          className="recipe-form__input"
         />
-
+        <input
+          type="text"
+          name="difficulty"
+          placeholder="Enter difficulty"
+          value={formData.difficulty}
+          onChange={handleChange}
+          className="recipe-form__input"
+        />
         <input
           type="number"
           name="time"
-          placeholder="Enter time"
+          placeholder="Enter time (mins)"
           value={formData.time}
           onChange={handleChange}
-          className="input-field"
+          className="recipe-form__input"
         />
-
         <input
           type="text"
           name="author"
           placeholder="Enter Author"
           value={formData.author}
           onChange={handleChange}
-          className="input-field"
+          className="recipe-form__input"
         />
-        <button onClick={addRecipe} className="add-button">
+        <button onClick={addRecipe} className="recipe-form__button">
           Add Recipe
         </button>
       </div>
