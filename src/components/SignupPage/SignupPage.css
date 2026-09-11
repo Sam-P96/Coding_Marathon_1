@@ -1,1 +1,92 @@
+.signup-page {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #1a1a1a;
+}
 
+.signup-page form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-page label {
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+.signup-page input,
+.signup-page select {
+  padding: 0.7rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.05rem;
+  font-family: inherit;
+  background-color: #fff;
+}
+
+.signup-page input {
+  /* chừa chỗ bên phải cho icon ✓ / ✗ */
+  padding-right: 2.5rem;
+}
+
+.signup-page input:focus,
+.signup-page select:focus {
+  outline: none;
+  border-color: #888;
+}
+
+/* Dòng thông báo dưới mỗi ô */
+.signup-page .hint {
+  margin: 0.4rem 0 1.1rem;
+  font-size: 0.95rem;
+}
+
+.signup-page .hint-ok {
+  color: #2e9e4f;
+}
+
+.signup-page .hint-error {
+  color: #e5484d;
+}
+
+/* Khoảng cách khi ô không có thông báo nào bên dưới */
+.signup-page .spacer {
+  margin-bottom: 0rem;
+}
+
+.signup-page button {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #5b9bf3;
+  color: #fff;
+  font-size: 1.05rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.signup-page button:hover {
+  background-color: #4a8ce8;
+}
+
+/* Khối kết quả phía dưới, tách bằng đường kẻ như trong ảnh */
+.signup-output {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.signup-output h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.signup-output p {
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+}
