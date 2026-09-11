@@ -12,7 +12,7 @@ function Book({ title, author, genre, language, edition, pages, rating, year, on
         <span className="book-author">Publication: {year}</span>
       </div>
       <button onClick={onDelete} className="delete-button">
-        Delete
+        DELETE
       </button>
     </li>
   );
