@@ -1,1 +1,196 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family:
+    'Segoe UI',
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    sans-serif;
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Page Layout */
+.shopping-manager {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.shopping-manager__container {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+/* Form Styling */
+.shopping-form {
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin-bottom: 28px;
+}
+
+.shopping-form__title {
+  color: #1e3a8a;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.shopping-form__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shopping-form__input {
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #334155;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.shopping-form__input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.shopping-form__button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.shopping-form__button:hover {
+  background-color: #1d4ed8;
+}
+
+.shopping-form__button:active {
+  transform: scale(0.98);
+}
+
+/* shopping Cards List */
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.shopping-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #2563eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.shopping-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+}
+
+.shopping-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.shopping-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.shopping-card__slug {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.shopping-card__description {
+  font-size: 14.5px;
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.shopping-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  font-size: 13.5px;
+  color: #475569;
+}
+
+.shopping-card__badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  background-color: #dbeafe;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.shopping-card__image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.shopping-card__button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #ef4444;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.shopping-card__button:hover {
+  background-color: #dc2626;
+}
+
+.shopping-card__button:active {
+  transform: scale(0.98);
+}
