@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShoppingTray = ({ Pname, brand, quantity, subtotal, tax, availability }) => {
+const ShoppingTray = ({ id, Pname, brand, quantity, subtotal, tax, availability, onRemove }) => {
   const total = Number(quantity) * Number(subtotal) + Number(tax);
 
   return (
@@ -97,6 +97,7 @@ const ShoppingTray = ({ Pname, brand, quantity, subtotal, tax, availability }) =
         </span>
         <span style={{ fontSize: '14px', fontWeight: '800', color: '#111827' }}>€{total}</span>
       </div>
+      <button onClick={() => onRemove(id)}>Delete</button>
     </div>
   );
 };

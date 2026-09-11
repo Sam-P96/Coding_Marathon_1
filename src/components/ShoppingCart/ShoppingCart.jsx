@@ -9,12 +9,16 @@ function ShoppingCart() {
     setForm((prev) => [...prev, newItem]);
   };
 
+  const handleRemove = (id) => {
+    setForm((prev) => prev.filter((item) => item.id !== id));
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'row', padding: '5px', gap: '30px' }}>
       <AddShopping onAddItem={handleAddItem} />
 
       {form.map((item) => {
-        return <ShoppingTray key={item.id} {...item} />;
+        return <ShoppingTray key={item.id} {...item} onRemove={handleRemove} />;
       })}
     </div>
   );
