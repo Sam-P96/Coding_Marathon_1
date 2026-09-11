@@ -1,11 +1,20 @@
+import { useState } from 'react';
+import Reciepe from './Reciepe';
 
-function RecipeManager() {
+import { recipes } from './reciepeData';
+
+function RecipeManager(data) {
+  const [reciepe, setReciepe] = useState(recipes);
   return (
-    <div>
-      RecipeManager
-    </div>
-  )
+    <section>
+      {/* <Title title="featured" subtitle="reciepe" /> */}
+      <div>
+        {recipes.map((data) => {
+          return <Reciepe key={data.id} {...data} />;
+        })}
+      </div>
+    </section>
+  );
 }
- 
-export default RecipeManager
 
+export default RecipeManager;
